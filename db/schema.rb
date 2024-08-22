@@ -10,34 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# frozen_string_literal: true
-
-# rubocop:disable Style/NumericLiterals
 ActiveRecord::Schema.define(version: 2024_08_22_155135) do
-  # rubocop:enable Style/NumericLiterals
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'carts', force: :cascade do |t|
-    t.decimal 'total_price', precision: 7, scale: 2
-    t.decimal 'discount', precision: 4, scale: 2
-    t.integer 'status'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "carts", force: :cascade do |t|
+    t.decimal "total_price", precision: 8, scale: 2
+    t.decimal "discount", precision: 8, scale: 2
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'goods', force: :cascade do |t|
-    t.string 'title'
-    t.decimal 'price', precision: 7, scale: 2
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "goods", force: :cascade do |t|
+    t.string "title"
+    t.decimal "price", precision: 8, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'goods2carts', force: :cascade do |t|
-    t.integer 'good_id'
-    t.integer 'cart_id'
-    t.integer 'amount'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "goods2carts", force: :cascade do |t|
+    t.integer "good_id"
+    t.integer "cart_id"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
+
 end
