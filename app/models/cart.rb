@@ -10,4 +10,8 @@ class Cart < ApplicationRecord
     done: 2,
     rejected: 3
   }
+
+  def clear!
+    goods2carts.destroy_all
+  end
 end
