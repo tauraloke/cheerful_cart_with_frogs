@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Cart model class
 class Cart < ApplicationRecord
   enum status: {
     pending: 0,

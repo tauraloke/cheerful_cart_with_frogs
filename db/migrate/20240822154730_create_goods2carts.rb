@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Many2Many cart/good migration class
 class CreateGoods2carts < ActiveRecord::Migration[6.1]
   def change
     create_table :goods2carts do |t|
