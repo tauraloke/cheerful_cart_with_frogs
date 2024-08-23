@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+#container {
+  /* Cart */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+
+  position: relative;
+  width: 1280px;
+  height: 913px;
+
+  /* Light / white FFFFFF */
+  background: #ffffff;
+}
+
+.header {
+  /* Header / Default */
+
+  width: 1280px;
+  height: 93px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.header__lg_2024 {
+  /* Header / LG 1024 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 16px;
+
+  position: absolute;
+  height: 60px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  /* Light / white FFFFFF */
+  background: #ffffff;
+  /* background-line-bottom */
+  box-shadow: 0px 1px 0px #eceff4;
+}
+
+.header__center {
+  /* Center */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 24px;
+
+  width: 992px;
+  height: 36px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.header__logos {
+  /* Logos/logo-frogogo */
+
+  width: 150px;
+  height: 36px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.header__center a {
+  text-decoration: none;
+}
+
+.header__logo {
+  /* Marchio */
+
+  position: relative;
+  width: 30.32px;
+  height: 30.32px;
+  left: 0px;
+  top: 0px;
+}
+
+.header__headline {
+  /* Logos/Logotipo */
+
+  position: relative;
+  left: 10px;
+  top: 4px;
+}
