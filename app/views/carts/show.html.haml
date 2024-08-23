@@ -13,12 +13,36 @@
         .cart__headline__clear__text
           = 'Очистить корзину'
 
-  -unless @cart_rows_count > 0
-    .cart__empty__placeholder
-      .cart__empty__icon
-        =image_tag 'empty.svg'
-      .cart__empty__text
-        .cart__empty__title
-          = 'В корзине нет товаров'
-        .cart__empty__subtitle
-          = 'Добавьте товар из каталога.'
+-if @cart_rows_count > 0
+  - @cart_rows.each do |cart_row|
+    .cart__list
+      .cart__list__item
+        .cart__list__item__buttons
+          .cart__list__item__buttons__content
+            .cart__list__item__buttons__minus
+              =image_tag 'minus.svg'
+            .cart__list__item__buttons__amount
+              = cart_row.amount
+            .cart__list__item__buttons__plus
+              =image_tag 'plus.svg'
+        .cart__list__item__prices
+          =number_with_delimiter(cart_row.good.price.round, delimiter: " ") + ' ₽'
+        .cart__list__item__icons
+          .cart__list__item__icons__trash
+            =image_tag 'trash.svg'
+        .cart__list__item__card
+          .cart__list__item__card__image
+            =image_tag 'goods/' + cart_row.good.image_path
+        .cart__list__item__content
+          = cart_row.good.title
+      .cart__list__separator
+
+-unless @cart_rows_count > 0
+  .cart__empty__placeholder
+    .cart__empty__icon
+      =image_tag 'empty.svg'
+    .cart__empty__text
+      .cart__empty__title
+        = 'В корзине нет товаров'
+      .cart__empty__subtitle
+        = 'Добавьте товар из каталога.'

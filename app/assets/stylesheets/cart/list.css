@@ -1,0 +1,251 @@
+.cart__list {
+  /* List */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+
+  width: 768px;
+  height: 363px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.cart__list__item {
+  /* Hover */
+
+  width: 768px;
+  height: 100px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.cart__list__item__buttons {
+  /* Buttons */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px;
+
+  position: absolute;
+  width: 84px;
+  height: 32px;
+  left: calc(50% - 84px / 2 + 98px);
+  top: 34px;
+
+  /* Light / gray-100 */
+  background: #f8f8f9;
+  border-radius: 6px;
+}
+
+.cart__list__item__buttons__content {
+  /* Content */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+
+  width: 76px;
+  height: 24px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.cart__list__item__buttons__minus {
+  /* Icons/Unsorted/minus */
+
+  width: 24px;
+  height: 24px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.cart__list__item__buttons__minus img {
+  /* Icon */
+
+  position: absolute;
+  width: 8px;
+  height: 1.33px;
+  left: calc(50% - 8px / 2);
+  top: calc(50% - 1.33px / 2 + 0px);
+
+  /* Dark/gray-900
+
+1E1E3C
+*/
+  background: #1e1e3c;
+  border-radius: 1.33333px;
+}
+
+.cart__list__item__buttons__amount {
+}
+
+.cart__list__item__buttons__plus {
+  /* Icons/Unsorted/plus */
+
+  width: 24px;
+  height: 24px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.cart__list__item__buttons__plus img {
+  /* Icon */
+
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: calc(50% - 8px / 2);
+  top: calc(50% - 8px / 2);
+
+  /* Dark / gray-900
+
+1E1E3C
+*/
+  background: #1e1e3c;
+}
+
+.cart__list__item__prices {
+  /* Prices / Promotional Price */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 4px;
+
+  position: absolute;
+  width: 41px;
+  height: 24px;
+  right: 0px;
+  top: calc(50% - 24px / 2 + 1px);
+}
+
+.cart__list__item__icons {
+  /* Icons */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 1px;
+  top: 0px;
+}
+
+.cart__list__item__icons__trash {
+  /* Icons/Nav Bar/trash */
+
+  width: 20px;
+  height: 20px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.cart__list__item__card {
+  /* Left */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  left: 0px;
+  top: 0px;
+}
+
+.cart__list__item__card__image {
+  /* Image */
+
+  width: 100px;
+  height: 100px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.cart__list__item__card__image img {
+  /* Image */
+
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 0px;
+  top: 0px;
+
+  background: url(.jpg);
+}
+
+.cart__list__item__content {
+  /* Content */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+
+  width: 284px;
+  height: 20px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.cart__list__separator {
+  /* Separator */
+
+  width: 768px;
+  height: 1px;
+
+  /* Light / gray-300 ECEFF4 */
+  background: #eceff4;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}

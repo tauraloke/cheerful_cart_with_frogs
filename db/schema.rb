@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2024_08_22_155135) do
   create_table "goods", force: :cascade do |t|
     t.string "title"
     t.decimal "price", precision: 8, scale: 2
+    t.string "image_path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
