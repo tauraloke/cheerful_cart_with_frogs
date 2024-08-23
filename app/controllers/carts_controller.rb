@@ -2,21 +2,16 @@
 
 # Class for the bunch of cart routes
 class CartsController < ApplicationController
-  DEFAULT_USER_ID = 1
+  DEFAULT_CART_ID = 1
 
   def show
-    # TODO: извлечь данные для рендера корзины
-    @cart = Cart.get(current_user_id)
-  end
-
-  def restore
-    # TODO: восстановить корзину по умолчанию
-    redirect action: 'show'
+    @cart = Cart.get(current_cart_id)
+    @cart_rows = @cart.goods2carts.includes(:good)
   end
 
   private
 
-  def current_user_id
-    DEFAULT_USER_ID
+  def current_cart_id
+    DEFAULT_CART_ID
   end
 end
