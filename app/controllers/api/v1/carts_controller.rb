@@ -6,7 +6,7 @@ module Api
     # Controller class for user carts
     class CartsController < ApplicationController
       def clear
-        Cart.get(current_cart_id).clear!
+        Cart.find(current_cart_id).clear!
 
         render json: { status: 'OK', cart_id: current_cart_id }
       end
