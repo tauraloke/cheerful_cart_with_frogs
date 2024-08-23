@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Api
+  # Version module
   module V1
     # Controller class for user carts
     class CartsController < ApplicationController
