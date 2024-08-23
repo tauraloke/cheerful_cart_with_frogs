@@ -42,3 +42,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'rubocop-rails', '~> 2.25.1', require: false
+
+gem "haml-rails", "~> 2.0"
