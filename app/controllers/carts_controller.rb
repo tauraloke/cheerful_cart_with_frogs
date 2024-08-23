@@ -5,6 +5,7 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find(current_cart_id)
     @cart_rows = @cart.goods2carts.includes(:good)
+    @cart_rows_count = @cart_rows.count
   end
 
   private

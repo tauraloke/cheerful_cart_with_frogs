@@ -31,89 +31,16 @@
   background: #ffffff;
 }
 
-.header {
-  /* Header / Default */
-
-  width: 1280px;
-  height: 93px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.header__lg_2024 {
-  /* Header / LG 1024 */
+#main {
+  /* Body */
 
   /* Auto layout */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 12px 16px;
-  gap: 16px;
+  align-items: flex-start;
+  padding: 0px 0px 90px;
+  gap: 32px;
 
-  position: absolute;
-  height: 60px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-
-  /* Light / white FFFFFF */
-  background: #ffffff;
-  /* background-line-bottom */
-  box-shadow: 0px 1px 0px #eceff4;
-}
-
-.header__center {
-  /* Center */
-
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0px;
-  gap: 24px;
-
-  width: 992px;
-  height: 36px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-}
-
-.header__logos {
-  /* Logos/logo-frogogo */
-
-  width: 150px;
-  height: 36px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.header__center a {
-  text-decoration: none;
-}
-
-.header__logo {
-  /* Marchio */
-
-  position: relative;
-  width: 30.32px;
-  height: 30.32px;
-  left: 0px;
-  top: 0px;
-}
-
-.header__headline {
-  /* Logos/Logotipo */
-
-  position: relative;
-  left: 10px;
-  top: 4px;
+  width: 768px;
+  height: 820px;
 }

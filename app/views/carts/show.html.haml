@@ -3,4 +3,22 @@
 - content_for :description do
   - 'Страница корзины'
 
-аавав
+.cart__top
+  .cart__headline
+    .cart__headline__title
+      .cart__headline__title__text
+        = 'Корзина'
+    -if @cart_rows_count > 0
+      .cart__headline__clear
+        .cart__headline__clear__text
+          = 'Очистить корзину'
+
+  -unless @cart_rows_count > 0
+    .cart__empty__placeholder
+      .cart__empty__icon
+        =image_tag 'empty.svg'
+      .cart__empty__text
+        .cart__empty__title
+          = 'В корзине нет товаров'
+        .cart__empty__subtitle
+          = 'Добавьте товар из каталога.'
