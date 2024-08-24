@@ -14,28 +14,27 @@
           = 'Очистить корзину'
 
 -if @cart_rows_count > 0
-  - @cart_rows.each do |cart_row|
-    .cart__list
-      .cart__list__item
-        .cart__list__item__buttons
-          .cart__list__item__buttons__content
-            .cart__list__item__buttons__minus
-              =image_tag 'minus.svg'
-            .cart__list__item__buttons__amount
-              = cart_row.amount
-            .cart__list__item__buttons__plus
-              =image_tag 'plus.svg'
-        .cart__list__item__prices
-          =number_with_delimiter(cart_row.good.price.round, delimiter: " ") + ' ₽'
-        .cart__list__item__icons
-          .cart__list__item__icons__trash
-            =image_tag 'trash.svg'
-        .cart__list__item__card
-          .cart__list__item__card__image
-            =image_tag 'goods/' + cart_row.good.image_path
-        .cart__list__item__content
+  %table.cart__table
+    - @cart_rows.each do |cart_row|
+      %tr
+        %td.cart__table__image
+          =image_tag 'goods/' + cart_row.good.image_path
+        %td.cart__table__content
           = cart_row.good.title
-      .cart__list__separator
+        %td.cart__table__amount
+          .cart__table__amount__block
+            .cart__table__amount__decrease{title: 'Уменьшить'}
+              =image_tag 'minus.svg'
+            .cart__table__amount__value
+              = cart_row.amount
+            .cart__table__amount__increase{title: 'Добавить'}
+              =image_tag 'plus.svg'
+        %td.cart__table__last
+          .cart__table__last__trash
+            =image_tag 'trash.svg', title: 'Удалить'
+          .cart__table__last__price
+            =number_with_delimiter(cart_row.good.price.round, delimiter: " ") + ' ₽'
+    
 
 -unless @cart_rows_count > 0
   .cart__empty__placeholder
