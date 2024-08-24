@@ -25,16 +25,41 @@
           .cart__table__amount__block
             .cart__table__amount__decrease{title: 'Уменьшить'}
               =image_tag 'minus.svg'
-            .cart__table__amount__value
+            .cart__table__amount__value.bold
               = cart_row.amount
             .cart__table__amount__increase{title: 'Добавить'}
               =image_tag 'plus.svg'
         %td.cart__table__last
           .cart__table__last__trash
             =image_tag 'trash.svg', title: 'Удалить'
-          .cart__table__last__price
+          .cart__table__last__price.bold
             =number_with_delimiter(cart_row.good.price.round, delimiter: " ") + ' ₽'
-    
+  .cart__total
+    %table.cart__total__top
+      %tr
+        %td
+          =@total_count.to_s + ' товара на сумму'
+        %td.bold
+          =number_with_delimiter(@total_sum.round, delimiter: " ") + ' ₽'
+      %tr
+        %td
+          = 'Передвигая слайдер, укажите сумму скидки'
+        %td.bold
+          =number_with_delimiter(@cart.discount.round, delimiter: " ") + ' ₽'
+    .cart__total__slider
+      .cart__total__slider__track
+      .cart__total__slider__slider
+        .cart__total__slider__knob
+    .cart__total__separator
+    .cart__total__price
+      .cart__total__price__description.bold
+        = 'Сумма заказа'
+      .cart__total__price__value.very_bold
+        =number_with_delimiter(@final_price.round, delimiter: " ") + ' ₽'
+  .cart__submit
+    .cart__submit__content
+      = 'Оформить'    
+
 
 -unless @cart_rows_count > 0
   .cart__empty__placeholder

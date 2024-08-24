@@ -38,12 +38,17 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+
   padding-top: 15px;
 
   /* Dark / gray-700 */
   color: #8a93a3;
 
   cursor: pointer;
+}
+
+.cart__headline__clear__text:hover {
+  color: #e73b3b;
 }
 
 .cart__headline__title {

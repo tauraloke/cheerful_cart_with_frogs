@@ -37,7 +37,7 @@
 .cart__table__amount__increase:hover {
   background: #e0e0e2;
   border-radius: 6px;
-  transition: background-color 1s;
+  transition: background-color 0.8s;
 }
 
 .cart__table__amount__decrease > img {
@@ -58,7 +58,7 @@
 .cart__table__last__trash:hover {
   background: red;
   border-radius: 6px;
-  transition: background-color 1s;
+  transition: background-color 0.8s;
 }
 
 .cart__table__last__price {

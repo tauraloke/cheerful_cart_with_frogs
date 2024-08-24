@@ -14,6 +14,14 @@
  *= require_self
  */
 
+* {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 #container {
   /* Cart */
 
@@ -25,7 +33,6 @@
 
   position: relative;
   width: 1280px;
-  height: 913px;
 
   /* Light / white FFFFFF */
   background: #ffffff;
@@ -42,5 +49,26 @@
   gap: 32px;
 
   width: 768px;
-  height: 820px;
+}
+
+.bold {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  /* Dark / gray-900 */
+  color: #1e1e3c;
+}
+
+.very_bold {
+  /* Title 2 / Bold (22) */
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+
+  /* Dark / gray-900 */
+  color: #1e1e3c;
 }
