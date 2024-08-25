@@ -1,5 +1,6 @@
 .cart__total {
-  padding: 16px;
+  padding: 16px 16px 36px 16px;
+  margin-top: 30px;
   width: 732px;
   /* Light / white FFFFFF */
   background: #ffffff;
@@ -83,7 +84,9 @@
 .cart__submit {
   /* Button */
   width: 768px;
-  height: 40px;
+  height: 38px;
+  display: block;
+  margin-top: 40px;
 
   /* Primary / primary-500 4AD9BD */
   background: #4ad9bd;
@@ -100,7 +103,6 @@
 }
 
 .cart__submit__content {
-  /* Перейти к оформлению */
   position: relative;
   top: 8px;
 

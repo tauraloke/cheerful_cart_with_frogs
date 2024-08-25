@@ -3,75 +3,76 @@
 - content_for :description do
   - 'Страница корзины'
 
-.cart__top
-  .cart__headline
-    .cart__headline__title
-      .cart__headline__title__text
-        = 'Корзина'
-    -if @cart_rows_count > 0
-      .cart__headline__clear
-        =link_to '/cart/clear', class: 'cart__headline__clear__text' do
-          = 'Очистить корзину'
+.cart__container{'data-count': @cart_rows_count}
+  .cart__top
+    .cart__headline
+      .cart__headline__title
+        .cart__headline__title__text
+          = 'Корзина'
+      .show_if_count_positive
+        .cart__headline__clear
+          =link_to '/cart/clear', class: 'cart__headline__clear__text' do
+            = 'Очистить корзину'
 
--if @cart_rows_count > 0
-  %table.cart__table
-    - @cart_rows.each do |cart_row|
-      %tr
-        %td.cart__table__image
-          =link_to asset_path('goods/' + cart_row.good.image_path) do
-            =image_tag 'goods/' + cart_row.good.image_path
-        %td.cart__table__content
-          = cart_row.good.title
-        %td.cart__table__amount
-          .cart__table__amount__block
-            .cart__table__amount__decrease{title: 'Уменьшить'}
-              =image_tag 'minus.svg'
-            .cart__table__amount__value.bold
-              = cart_row.amount
-            .cart__table__amount__increase{title: 'Добавить'}
-              =image_tag 'plus.svg'
-        %td.cart__table__last
-          .cart__table__last__trash
-            =image_tag 'trash.svg', title: 'Удалить'
-          .cart__table__last__price.bold
-            =number_with_delimiter(cart_row.good.price.round, delimiter: " ") + ' ₽'
-  .cart__total
-    %table.cart__total__top
-      %tr
-        %td
-          =@total_count.to_s + ' товара на сумму'
-        %td.cart__total__top__value.bold{ 'data-value': @total_sum.round }
-          =number_with_delimiter(@total_sum.round, delimiter: " ") + ' ₽'
-      %tr
-        %td
-          = 'Передвигая слайдер, укажите сумму скидки'
-        %td.bold.cart__total__top__discount{ 'data-value': @cart.discount.round }
-          =number_with_delimiter(@cart.discount.round, delimiter: " ") + ' ₽'
-    %input{ type: :range,
-            name: :discount,
-            min: 0,
-            max: 1000,
-            value: @cart.discount.round,
-            step: 1,
-            class: 'cart__total__slider'
-    }
-    .cart__total__separator
-    .cart__total__price
-      .cart__total__price__description.bold
-        = 'Сумма заказа'
-      .cart__total__price__value.very_bold
-        =number_with_delimiter(@final_price.round, delimiter: " ") + ' ₽'
-  =link_to '/cart/clear', class: 'cart__submit' do
-    .cart__submit__content
-      = 'Оформить'    
+  .show_if_count_positive
+    %table.cart__table
+      - @cart_rows.each do |cart_row|
+        %tr{ 'data-id': cart_row.id }
+          %td.cart__table__image
+            =link_to asset_path('goods/' + cart_row.good.image_path) do
+              =image_tag 'goods/' + cart_row.good.image_path
+          %td.cart__table__content
+            = cart_row.good.title
+          %td.cart__table__amount
+            .cart__table__amount__block
+              .cart__table__amount__decrease{title: 'Уменьшить'}
+                =image_tag 'minus.svg'
+              .cart__table__amount__value.bold{'data-value':cart_row.amount}
+                = cart_row.amount
+              .cart__table__amount__increase{title: 'Добавить'}
+                =image_tag 'plus.svg'
+          %td.cart__table__last
+            .cart__table__last__trash
+              =image_tag 'trash.svg', title: 'Удалить'
+            .cart__table__last__price.bold{'data-value':cart_row.good.price.round}
+              =number_with_delimiter(cart_row.good.price.round, delimiter: " ") + ' ₽'
+    .cart__total
+      %table.cart__total__top
+        %tr
+          %td
+            =@total_count.to_s + ' товара на сумму'
+          %td.cart__total__top__value.bold{ 'data-value': @total_sum.round }
+            =number_with_delimiter(@total_sum.round, delimiter: " ") + ' ₽'
+        %tr
+          %td
+            = 'Передвигая слайдер, укажите сумму скидки'
+          %td.bold.cart__total__top__discount{ 'data-value': @discount.round }
+            =number_with_delimiter(@discount.round, delimiter: " ") + ' ₽'
+      %input{ type: :range,
+              name: :discount,
+              min: 0,
+              max: @discount_max,
+              value: @discount,
+              step: 1,
+              class: 'cart__total__slider'
+      }
+      .cart__total__separator
+      .cart__total__price
+        .cart__total__price__description.bold
+          = 'Сумма заказа'
+        .cart__total__price__value.very_bold
+          =number_with_delimiter(@final_price.round, delimiter: " ") + ' ₽'
+    =link_to '/cart/clear', class: 'cart__submit' do
+      .cart__submit__content
+        = 'Оформить'
 
 
--unless @cart_rows_count > 0
-  .cart__empty__placeholder
-    .cart__empty__icon
-      =image_tag 'empty.svg'
-    .cart__empty__text
-      .cart__empty__title
-        = 'В корзине нет товаров'
-      .cart__empty__subtitle
-        = 'Добавьте товар из каталога.'
+  .show_if_count_is_zero
+    .cart__empty__placeholder
+      .cart__empty__icon
+        =image_tag 'empty.svg'
+      .cart__empty__text
+        .cart__empty__title
+          = 'В корзине нет товаров'
+        .cart__empty__subtitle
+          = 'Добавьте товар из каталога.'

@@ -3,7 +3,7 @@
 module Api
   module V1
     # Api class for cart positions
-    class Goods2cartsController < ApplicationController
+    class Goods2cartsController < ApiController
       def update
         amount = int_param :amount
         id     = int_param :id

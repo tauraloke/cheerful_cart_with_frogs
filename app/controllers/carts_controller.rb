@@ -6,9 +6,12 @@ class CartsController < ApplicationController
     @cart            = Cart.find(current_cart_id)
     @cart_rows       = @cart.goods2carts.includes(:good)
     @cart_rows_count = @cart_rows.count
-    @total_count     = @cart_rows.count > 0 ? @cart.total_count : 0
-    @total_sum       = @cart_rows.count > 0 ? @cart.total_sum : 0
-    @final_price     = @total_sum - @cart.discount
+    @total_count     = @cart.total_count
+    @total_sum       = @cart.total_sum
+    @total_count     = @total_sum = 0 if @cart_rows.count.zero?
+    @discount        = [@total_sum, @cart.discount].min
+    @discount_max    = [@total_sum, 1000].min
+    @final_price     = @total_sum - @discount
   end
 
   def clear
