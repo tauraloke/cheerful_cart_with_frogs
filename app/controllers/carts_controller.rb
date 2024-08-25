@@ -6,9 +6,15 @@ class CartsController < ApplicationController
     @cart            = Cart.find(current_cart_id)
     @cart_rows       = @cart.goods2carts.includes(:good)
     @cart_rows_count = @cart_rows.count
-    @total_count     = @cart.total_count
-    @total_sum       = @cart.total_sum
+    @total_count     = @cart_rows.count > 0 ? @cart.total_count : 0
+    @total_sum       = @cart_rows.count > 0 ? @cart.total_sum : 0
     @final_price     = @total_sum - @cart.discount
+  end
+
+  def clear
+    Cart.find(current_cart_id).clear!
+
+    redirect_to '/cart'
   end
 
   private

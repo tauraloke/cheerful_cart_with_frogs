@@ -10,7 +10,7 @@
         = 'Корзина'
     -if @cart_rows_count > 0
       .cart__headline__clear
-        .cart__headline__clear__text
+        =link_to '/cart/clear', class: 'cart__headline__clear__text' do
           = 'Очистить корзину'
 
 -if @cart_rows_count > 0

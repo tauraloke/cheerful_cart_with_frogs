@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/', to: redirect('/cart')
   get '/cart', to: 'carts#show'
+  get '/cart/clear', to: 'carts#clear'
   patch '/api/v1/goods2cart/:id', to: 'api/v1/goods2carts#update'
   delete '/api/v1/goods2cart/:id', to: 'api/v1/goods2carts#delete'
-  delete 'api/v1/cart', to: 'api/v1/carts#delete'
 end
