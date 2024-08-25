@@ -6,11 +6,8 @@ class CartsController < ApplicationController
     @cart            = Cart.find(current_cart_id)
     @cart_rows       = @cart.goods2carts.includes(:good)
     @cart_rows_count = @cart_rows.count
-    @total_count     = @cart.goods2carts.group(:cart_id).pick('SUM(amount) AS total_count')
-    @total_sum       = @cart.goods2carts
-                            .includes(:good)
-                            .group(:cart_id)
-                            .sum('goods2carts.amount * goods.price')[@cart.id]
+    @total_count     = @cart.total_count
+    @total_sum       = @cart.total_sum
     @final_price     = @total_sum - @cart.discount
   end
 
