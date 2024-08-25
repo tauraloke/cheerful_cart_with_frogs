@@ -56,9 +56,9 @@
 }
 
 .cart__table__last__trash:hover {
-  background: red;
+  filter: invert(100%);
   border-radius: 6px;
-  transition: background-color 0.8s;
+  transition: all 0.8s;
 }
 
 .cart__table__last__price {
