@@ -31,3 +31,7 @@ Run in the `web` container  shell:
 ```
 rake db:seed:replant
 ```
+
+# Possible weak sides
+- I'm too lazy now to make previews of product images and compact the cart page.
+- Unit testing is good itself but I think this test work is too long.
