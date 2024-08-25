@@ -102,6 +102,8 @@
   border-radius: 8px;
   cursor: pointer;
   user-select: none;
+
+  text-decoration: none;
 }
 
 .cart__submit:hover {

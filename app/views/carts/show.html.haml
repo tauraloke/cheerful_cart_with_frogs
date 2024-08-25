@@ -57,7 +57,7 @@
         = 'Сумма заказа'
       .cart__total__price__value.very_bold
         =number_with_delimiter(@final_price.round, delimiter: " ") + ' ₽'
-  .cart__submit
+  =link_to '/cart/clear', class: 'cart__submit' do
     .cart__submit__content
       = 'Оформить'    
 
