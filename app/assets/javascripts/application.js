@@ -25,10 +25,10 @@ class Reference {
     this.value = newValue;
     if (this.element) {
       this.element.dataset.value = newValue;
-      this.element.innerHTML = Reference.prepare(newValue);
+      this.element.innerHTML = this.prepare(newValue);
     }
   }
-  static prepare(value) {
+  prepare(value) {
     return value;
   }
   onBeforeUpdate(newValue) {
@@ -39,7 +39,7 @@ class Reference {
 }
 
 class CurrencyReference extends Reference {
-  static prepare(value) {
+  prepare(value) {
     return value.toLocaleString('ru-RU') + ' ₽';
   }
 }
