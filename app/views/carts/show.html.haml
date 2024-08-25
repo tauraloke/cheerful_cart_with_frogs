@@ -18,7 +18,8 @@
     - @cart_rows.each do |cart_row|
       %tr
         %td.cart__table__image
-          =image_tag 'goods/' + cart_row.good.image_path
+          =link_to asset_path('goods/' + cart_row.good.image_path) do
+            =image_tag 'goods/' + cart_row.good.image_path
         %td.cart__table__content
           = cart_row.good.title
         %td.cart__table__amount
