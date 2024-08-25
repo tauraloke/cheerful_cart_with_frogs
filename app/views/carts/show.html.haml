@@ -40,17 +40,21 @@
       %tr
         %td
           =@total_count.to_s + ' товара на сумму'
-        %td.bold
+        %td.cart__total__top__value.bold{ 'data-value': @total_sum.round }
           =number_with_delimiter(@total_sum.round, delimiter: " ") + ' ₽'
       %tr
         %td
           = 'Передвигая слайдер, укажите сумму скидки'
-        %td.bold
+        %td.bold.cart__total__top__discount{ 'data-value': @cart.discount.round }
           =number_with_delimiter(@cart.discount.round, delimiter: " ") + ' ₽'
-    .cart__total__slider
-      .cart__total__slider__track
-      .cart__total__slider__slider
-        .cart__total__slider__knob
+    %input{ type: :range,
+            name: :discount,
+            min: 0,
+            max: 1000,
+            value: @cart.discount.round,
+            step: 1,
+            class: 'cart__total__slider'
+    }
     .cart__total__separator
     .cart__total__price
       .cart__total__price__description.bold

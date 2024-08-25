@@ -21,52 +21,40 @@
 }
 
 .cart__total__slider {
-  /* Card / Bonus Slider */
-  width: 736px;
-  height: 38px;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.cart__total__slider__slider {
-  /* Slider */
-  position: absolute;
-  width: 38px;
-  height: 38px;
-  right: 0px;
-  top: 0px;
-}
-
-.cart__total__slider__knob {
-  /* Knob */
-
-  width: 38px;
-  height: 38px;
-
-  /* Primary / primary-500 4AD9BD */
+  margin: 25px 0px;
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
   background: #4ad9bd;
-  border-radius: 30px;
-
-  cursor: pointer;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
-.cart__total__slider__knob:hover {
-  background: #2f9782;
-  transition: background-color 0.8s;
+.cart__total__slider:hover {
+  opacity: 0.8;
 }
 
-.cart__total__slider__track {
-  /* Track */
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.cart__total__slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 38px; /* Set a specific slider handle width */
+  height: 38px; /* Slider handle height */
+  border-radius: 19px;
+  background: #4ad9bd; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
 
-  position: relative;
-  height: 4px;
-  left: 0px;
-  right: 0px;
-  top: calc(50% - 4px / 2);
-
-  /* Primary / primary-500 4AD9BD */
-  background: #4ad9bd;
-  border-radius: 4px;
+.cart__total__slider::-moz-range-thumb {
+  width: 30px; /* Set a specific slider handle width */
+  height: 30px; /* Slider handle height */
+  border-radius: 19px;
+  background: #4ad9bd; /* Green background */
+  cursor: pointer; /* Cursor on hover */
 }
 
 .cart__total__separator {
