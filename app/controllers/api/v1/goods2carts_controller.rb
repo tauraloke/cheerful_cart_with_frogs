@@ -12,7 +12,7 @@ module Api
         record = Goods2cart.find(id)
         return render json: { error: 'Record is not found' } unless record
 
-        record.update_atribute :amount, amount
+        record.update({ amount: })
         render json: { success: true, id: }
       end
 

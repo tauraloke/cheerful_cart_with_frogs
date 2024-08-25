@@ -34,8 +34,8 @@
           %td.cart__table__last
             .cart__table__last__trash
               =image_tag 'trash.svg', title: 'Удалить'
-            .cart__table__last__price.bold{'data-value':cart_row.good.price.round}
-              =number_with_delimiter(cart_row.good.price.round, delimiter: " ") + ' ₽'
+            .cart__table__last__price.bold{'data-value':(cart_row.good.price * cart_row.amount).round}
+              =number_with_delimiter((cart_row.good.price * cart_row.amount).round, delimiter: " ") + ' ₽'
     .cart__total
       %table.cart__total__top
         %tr

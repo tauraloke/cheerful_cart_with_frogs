@@ -26,6 +26,7 @@
   background: #f8f8f9;
   border-radius: 6px;
   display: inline-block;
+  user-select: none;
 }
 
 .cart__table__amount > .cart__table__amount__block > div {

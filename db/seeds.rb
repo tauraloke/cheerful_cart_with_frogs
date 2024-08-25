@@ -15,7 +15,7 @@ good2 = Good.create! title: 'Женский домашний костюм Sweet 
                      price: 800,
                      image_path: 'sweet_dream_the_woman_suit.jpg'
 good3 = Good.create! title: 'Плащ-дождевик SwissOak',
-                     price: 800,
+                     price: 400,
                      image_path: 'swiss_oak_the_raincoat.jpg'
 cart = Cart.create! total_price: 3000, discount: 1000, status: :pending
 Goods2cart.create! [
