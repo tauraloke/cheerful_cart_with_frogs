@@ -19,6 +19,8 @@ docker-compose up
 ```
 And here is test cart page: http://localhost:3000/cart
 
+You can see the english version of the project here: http://localhost:3000/en/cart (just for fun).
+
 # Lint
 
 Run in the `web` container shell:
@@ -27,7 +29,7 @@ rubocop --require rubocop-rails
 ```
 
 # Restore dev data
-Run in the `web` container  shell:
+Run in the `web` container shell:
 ```
 rake db:seed:replant
 ```
@@ -35,3 +37,4 @@ rake db:seed:replant
 # Possible weak sides
 - I'm too lazy now to make previews of product images and compact the cart page.
 - Unit testing is good itself but I think this test work is too long.
+- English version have no correct update for the total block text after updating the total amount.

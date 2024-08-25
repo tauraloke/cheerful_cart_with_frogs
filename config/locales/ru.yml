@@ -1,7 +1,18 @@
 ru:
+  buttons:
+    decrease: Уменьшить
+    increase: Добавить
+    remove: Удалить
+    submit: Оформить
   cart:
+    title: Корзина
+    description: Страница корзины
+    header: Корзина
+    truncate_cart: Очистить корзину
+    slider_guide: Передвигая слайдер, укажите сумму скидки
+    total_price: Сумма заказа
     total_goods_amount:
-      zero: 'Пусто'
+      zero: Пусто
       one: '%{count} товар на сумму'
       few: '%{count} товара на сумму'
       other: '%{count} товаров на сумму'

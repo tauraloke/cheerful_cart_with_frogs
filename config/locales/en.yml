@@ -30,4 +30,19 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  buttons:
+    decrease: Remove one
+    increase: Add one
+    remove: Remove
+    submit: Submit
+  cart:
+    title: Cart
+    description: Cart page
+    header: Cart
+    truncate_cart: Truncate the cart
+    slider_guide: Move the slider to specify the discount amount
+    total_price: Order amount
+    total_goods_amount:
+      zero: None
+      one: '%{count} item for'
+      other: '%{count} items for'
