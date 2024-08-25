@@ -2,6 +2,7 @@
 
 # Class for the bunch of cart routes
 class CartsController < ApplicationController
+  # rubocop:disable Metrics/AbcSize
   def show
     @cart               = Cart.find(current_cart_id)
     @cart_rows          = @cart.goods2carts.includes(:good)
@@ -14,6 +15,7 @@ class CartsController < ApplicationController
     @discount_max       = [@total_sum, @discount_const_max].min
     @final_price        = @total_sum - @discount
   end
+  # rubocop:enable Metrics/AbcSize
 
   def clear
     Cart.find(current_cart_id).clear!

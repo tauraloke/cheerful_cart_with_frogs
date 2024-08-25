@@ -1,20 +1,26 @@
 //= require ../utils/reference
 //= require ../utils/currency_reference
+//= require ../utils/good_reference
 
 window.onload = function () {
   let topCartContainer = document.querySelector('.cart__container');
   let discountElement = document.querySelector('.cart__total__top__discount');
   let discountSlider = document.querySelector('.cart__total__slider');
   let discountConstMax =
-    // @ts-ignore
-    parseInt(document.querySelector('.cart__const__discount_const_max')?.dataset?.value) ||
-    1000;
+    parseInt(
+      // @ts-ignore
+      document.querySelector('.cart__const__discount_const_max')?.dataset?.value
+    ) || 1000;
 
   let discountRef = new CurrencyReference(
     discountElement,
     (_oldValue, newValue) => {
       finalPriceRef.update(totalPriceRef.value - newValue);
     }
+  );
+
+  let totalAmountRef = new GoodReference(
+    document.querySelector('.cart__total__top__amount_text')
   );
 
   let finalPriceRef = new CurrencyReference(
@@ -77,7 +83,7 @@ window.onload = function () {
       goodRow.querySelector('.cart__table__last__price')
     );
 
-    let deleteRow = (rowId) => {
+    let deleteRow = (rowId, amountFix = 0) => {
       fetch(`/api/v1/goods2cart/${rowId}`, { method: 'DELETE' })
         .then((result) => {
           if (!result.ok) {
@@ -91,6 +97,11 @@ window.onload = function () {
           totalPriceRef.update(
             totalPriceRef.value - goodPriceRefs[rowId].value
           );
+          totalAmountRef.update(
+            parseInt(totalAmountRef.value) -
+              parseInt(goodAmountRefs[rowId].value) -
+              amountFix
+          );
         })
         .catch((errorMsg) => {
           console.log(errorMsg);
@@ -101,7 +112,7 @@ window.onload = function () {
       goodRow.querySelector('.cart__table__amount__value'),
       (oldValue, newValue) => {
         if (newValue <= 0) {
-          deleteRow(rowId);
+          deleteRow(rowId, 1);
           return true;
         }
         fetch(`/api/v1/goods2cart/${rowId}`, {
@@ -113,11 +124,14 @@ window.onload = function () {
             if (!result.ok) {
               throw new Error(`Response status: ${result.status}`);
             }
+            let deltaAmount = newValue - oldValue;
+            totalAmountRef.update(parseInt(totalAmountRef.value) + deltaAmount);
+
             let oldRowPrice = parseInt(goodPriceRefs[rowId].value);
             let newRowPrice = (oldRowPrice / oldValue) * newValue;
             goodPriceRefs[rowId].update(newRowPrice);
-            let delta = newRowPrice - oldRowPrice;
-            totalPriceRef.update(parseInt(totalPriceRef.value) + delta);
+            let deltaPrice = newRowPrice - oldRowPrice;
+            totalPriceRef.update(parseInt(totalPriceRef.value) + deltaPrice);
           })
           .catch((errorMsg) => {
             console.log(errorMsg);

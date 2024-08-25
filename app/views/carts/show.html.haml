@@ -39,8 +39,8 @@
     .cart__total
       %table.cart__total__top
         %tr
-          %td
-            =@total_count.to_s + ' товара на сумму'
+          %td.cart__total__top__amount_text{'data-value': @total_count.to_s}
+            = t('cart.total_goods_amount', count: @total_count)
           %td.cart__total__top__value.bold{ 'data-value': @total_sum.round }
             =number_with_delimiter(@total_sum.round, delimiter: " ") + ' ₽'
         %tr

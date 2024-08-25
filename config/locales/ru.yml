@@ -1,0 +1,7 @@
+ru:
+  cart:
+    total_goods_amount:
+      zero: 'Пусто'
+      one: '%{count} товар на сумму'
+      few: '%{count} товара на сумму'
+      other: '%{count} товаров на сумму'
