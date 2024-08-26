@@ -12,6 +12,18 @@ class Reference {
       this.element.innerHTML = this.prepare(newValue);
     }
   }
+  /**
+   * @returns {Number}
+   */
+  getValue() {
+    return parseInt(this.value);
+  }
+  /**
+   * @param {Number} delta
+   */
+  addToValue(delta) {
+    this.update(this.getValue() + delta);
+  }
   prepare(value) {
     return value;
   }
